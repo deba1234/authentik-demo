@@ -33,7 +33,7 @@ services:
     environment:
       AUTHENTIK_HOST: https://auth.solution-space.org
       AUTHENTIK_INSECURE: "false"
-      AUTHENTIK_TOKEN: mytoken-copied-from-output-whoami-output
+      AUTHENTIK_TOKEN: CnbnGjLYYVMtTGuiOEBAvlyrr1vOymkIRuxe9WBHXAah4h348tA9ONJQ1QfKSm0bmwNM4WNoadXiu50mKG5mh13VuZeqYN1r8Siug3ztBfh8T08vl3wSWclc9jrjZqAA
       # Starting with 2021.9, you can optionally set this too
       # when authentik_host for internal communication doesn't match the public URL
       AUTHENTIK_HOST_BROWSER: https://auth.solution-space.org
@@ -75,7 +75,7 @@ services:
     restart: unless-stopped
 
   server:
-    image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2021.12.5}
+    image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2022.1.2}
     restart: unless-stopped
     command: server
     environment:
@@ -105,7 +105,7 @@ services:
       - "traefik.http.routers.server.tls.certresolver=myresolver"
 
   worker:
-    image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2021.12.5}
+    image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2022.1.2}
     restart: unless-stopped
     command: worker
     environment:
